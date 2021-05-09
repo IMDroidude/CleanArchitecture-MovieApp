@@ -4,28 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="mViewModel"
-            type="com.example.cleanarchitecture_movieapp.ui.splash.SplashViewModel" />
-
+            type="com.example.cleanarchitecture_movieapp.ui.movies.MovieListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.splash.SplashActivity">
+        tools:context=".ui.movies.MovieListFragment">
 
-        <TextView
-            android:id="@+id/welcome_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="TextView"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

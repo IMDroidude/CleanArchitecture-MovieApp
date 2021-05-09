@@ -9,5 +9,7 @@ class AppMain : XarApplication(){
 
     override fun onCreate() {
         super.onCreate()
+
+        // FIXME: 5/9/2021  initialzie timber stetho like lib here...
     }
 }

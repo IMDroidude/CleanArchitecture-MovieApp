@@ -26,7 +26,7 @@ class SplashActivity :
             mViewModel.commandFlow.collect {
                 when (it) {
                     is SplashViewModel.SplashCommand.OpenNextScreen -> launchActivity(it.className.java)
-                    is SplashViewModel.SplashCommand.WelcomeTitle -> toast(it.title)
+                    is SplashViewModel.SplashCommand.WelcomeTitle -> mBinding.welcomeTv.text(it.title)//toast(it.title)
                 }
             }
         }
