@@ -1,11 +1,11 @@
 package xar.mvvm.xarlib
 
+import android.os.StrictMode
 import android.util.Log
 import androidx.multidex.MultiDexApplication
 import timber.log.Timber
 
 abstract class XarApplication : MultiDexApplication(){
-
 
     override fun onCreate() {
         super.onCreate()
@@ -15,6 +15,22 @@ abstract class XarApplication : MultiDexApplication(){
         } else {
             Timber.plant(ReleaseTree())
         }*/
+
+        Timber.plant(Timber.DebugTree())
+
+        StrictMode.setThreadPolicy(
+            StrictMode.ThreadPolicy.Builder()
+                .detectAll()
+                .penaltyLog()
+                .build()
+        )
+
+        StrictMode.setVmPolicy(
+            StrictMode.VmPolicy.Builder()
+                .detectAll()
+                .penaltyLog()
+                .build()
+        )
     }
     class ReleaseTree : Timber.DebugTree() {
 
