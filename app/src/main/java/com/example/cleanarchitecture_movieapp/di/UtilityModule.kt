@@ -2,6 +2,8 @@ package com.example.cleanarchitecture_movieapp.di
 
 import com.example.cleanarchitecture_movieapp.domain.prefs.MoviePrefs
 import com.example.cleanarchitecture_movieapp.domain.prefs.MoviePrefsImpl
+import com.example.cleanarchitecture_movieapp.domain.repository.MovieRepository
+import com.example.cleanarchitecture_movieapp.domain.repository.MovieRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -18,5 +20,8 @@ abstract class UtilityModule {
 
     @Binds
     abstract fun bindmoviePrefs(moviePrefsImpl: MoviePrefsImpl): MoviePrefs
+
+    @Binds
+    abstract fun bindRepository(movieRepositoryImpl: MovieRepositoryImpl):MovieRepository
 
 }

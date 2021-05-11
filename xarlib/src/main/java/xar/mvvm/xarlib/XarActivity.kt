@@ -23,7 +23,7 @@ abstract class XarActivity<DB : ViewDataBinding, VM : XarViewModel>(@LayoutRes v
 
     fun addFragment(frameContainer: Int, fragment: Fragment){
         supportFragmentManager.beginTransaction()
-            .add(fragment, fragment.javaClass.canonicalName)
+            .add(frameContainer,fragment,fragment.javaClass.canonicalName)
             .commit()
     }
 

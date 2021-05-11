@@ -10,7 +10,7 @@ class SingleTypeViewHolder<T,DB : ViewDataBinding>(binding: DB, val clicked:(pos
     binding.root
     //LayoutInflater.from(parent.context).inflate(layoutId, parent, false)
 ) {
-    lateinit var mBinding: DB
+    var mBinding: DB
     //val binding = ItemListBinding.bind(view)
 
     init {

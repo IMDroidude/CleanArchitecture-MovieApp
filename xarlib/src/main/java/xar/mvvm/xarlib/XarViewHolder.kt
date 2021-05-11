@@ -8,7 +8,7 @@ class XarViewHolder<T,DB : ViewDataBinding>(binding: DB, val clicked:(pos:Int, v
     binding.root
     //LayoutInflater.from(parent.context).inflate(layoutId, parent, false)
 ) {
-    lateinit var mBinding: DB
+    var mBinding: DB
     //val binding = ItemListBinding.bind(view)
 
     init {

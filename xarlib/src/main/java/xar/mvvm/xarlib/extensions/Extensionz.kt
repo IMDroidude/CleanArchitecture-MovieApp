@@ -3,6 +3,7 @@ package xar.mvvm.xarlib.extensions
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.content.res.AssetManager
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.*
@@ -47,7 +48,7 @@ inline fun <T, S> MediatorLiveData<T>.combineSourceData(
     }
 }
 
-inline fun Context.toast(message:String,durationLong:Boolean = true){
+fun Context.toast(message:String,durationLong:Boolean = true){
     Toast.makeText(this, message , if(durationLong)Toast.LENGTH_LONG else Toast.LENGTH_SHORT).show()
 }
 
@@ -64,3 +65,15 @@ fun <T> Context.launchActivity(it: Class<T>, extras: Bundle.() -> Unit = {}) {
     intent.putExtras(Bundle().apply(extras))
     startActivity(intent)
 }
+
+fun <T> Activity.launchActivityFinish(it: Class<T>, extras: Bundle.() -> Unit = {}) {
+    val intent = Intent(this, it)
+    intent.putExtras(Bundle().apply(extras))
+    startActivity(intent)
+    finish()
+}
+
+
+fun AssetManager.readFile(fileName: String) = open(fileName)
+    .bufferedReader()
+    .use { it.readText() }

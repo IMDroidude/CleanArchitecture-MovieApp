@@ -8,8 +8,7 @@ import com.example.cleanarchitecture_movieapp.databinding.ActivitySplashBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import xar.mvvm.xarlib.XarActivity
-import xar.mvvm.xarlib.extensions.launchActivity
-import xar.mvvm.xarlib.extensions.toast
+import xar.mvvm.xarlib.extensions.launchActivityFinish
 
 @AndroidEntryPoint
 class SplashActivity :
@@ -25,7 +24,7 @@ class SplashActivity :
         lifecycleScope.launchWhenStarted {
             mViewModel.commandFlow.collect {
                 when (it) {
-                    is SplashViewModel.SplashCommand.OpenNextScreen -> launchActivity(it.className.java)
+                    is SplashViewModel.SplashCommand.OpenNextScreen -> launchActivityFinish(it.className.java) 
                     is SplashViewModel.SplashCommand.WelcomeTitle -> mBinding.welcomeTv.text= it.title//toast(it.title)
                 }
             }
